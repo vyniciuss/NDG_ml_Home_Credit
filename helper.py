@@ -1,20 +1,13 @@
 # ================================================== #
 #               Helper Functions                     #
 # ================================================== #
-import sys
 import pandas as pd
-import plotly.offline as po
-po.init_notebook_mode(connected=True)
 from plotly.offline import init_notebook_mode, iplot
-init_notebook_mode(connected=True)
 import plotly.graph_objs as go
-import plotly.offline as offline
-offline.init_notebook_mode()
 import plotly.plotly as py
 from plotly import tools
-import warnings
-warnings.filterwarnings("ignore")
 init_notebook_mode(connected=True)
+import warnings
 
 def draw_bar_plot_vert(col_name, data):    
     tempAll = data[col_name].value_counts()
