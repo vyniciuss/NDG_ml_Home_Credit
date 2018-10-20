@@ -11,7 +11,7 @@ class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
     def fit(self, X, Y=None):
         return self
     def transform(self, X, Y=None):
-        if self.poly_features:
+        if np.any(self.poly_features):
             poly_transformer = PolynomialFeatures(degree = 3)
             for _, value in self.poly_features.items():
                 poly_features = X[:, value[1]]
@@ -19,7 +19,7 @@ class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
                 self.poly_features = poly_transformer.transform(poly_features) 
                 self.name_created_poly_features = poly_transformer.get_feature_names(input_features = value[0])
             return np.c_[X, self.poly_features]
-        elif self.combined_features:
+        elif np.any(self.combined_features):
             for key, value in self.combined_features.items():
                 self.name_combined_features.append(key)
                 new_feature = X[:, value[0]] / X[:, value[1]]
