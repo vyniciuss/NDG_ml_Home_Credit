@@ -8,6 +8,7 @@ import plotly.plotly as py
 from plotly import tools
 init_notebook_mode(connected=True)
 import warnings
+from sklearn.model_selection import StratifiedShuffleSplit
 
 def draw_bar_plot_vert(col_name, df):    
     tempAll = df[col_name].value_counts()
