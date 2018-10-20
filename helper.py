@@ -11,8 +11,8 @@ import warnings
 
 def draw_bar_plot_vert(col_name, df):    
     tempAll = df[col_name].value_counts()
-    temp1 = df[data["TARGET"] == 1][col_name].value_counts()
-    temp0 = df[data["TARGET"] == 0][col_name].value_counts()
+    temp1 = df[df["TARGET"] == 1][col_name].value_counts()
+    temp0 = df[df["TARGET"] == 0][col_name].value_counts()
     
     trace0 = go.Bar(x=tempAll.index, y=(tempAll / tempAll.sum())*100, name='All', marker=dict(color="#49b675"))
     trace1 = go.Bar(x=temp1.index, y=(temp1 / temp1.sum())*100, name='Target = 1', marker=dict(color="#e61919"))
@@ -41,3 +41,9 @@ def draw_count_uniques(col_name, df, titulo):
     iplot(fig)
     print("Total de itens em cada grupo:")
     print(temp.value_counts())
+
+def nomes_atributos_categoricos(df):
+    return [key for key in dict(df.dtypes) if dict(df.dtypes)[key] in ['object']]
+
+def nomes_atributos_numericos(df):
+    return [key for key in dict(df.dtypes) if dict(df.dtypes)[key] in ['float64', 'int64']]
