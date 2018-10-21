@@ -48,3 +48,9 @@ def nomes_atributos_categoricos(df):
 
 def nomes_atributos_numericos(df):
     return [key for key in dict(df.dtypes) if dict(df.dtypes)[key] in ['float64', 'int64']]
+
+def draw_bar_plot_hor(x, y, titulo):
+    data = [go.Bar(x=x, y=y, marker=dict(color=x, colorscale = 'Jet', reversescale = True), name=titulo, orientation='h')]
+    layout = go.Layout(title=titulo, width = 900, height = 4000, margin=dict(l=300), yaxis=dict(showgrid=True))
+    fig1 = go.Figure(data=data, layout =layout)
+    iplot(fig1)
