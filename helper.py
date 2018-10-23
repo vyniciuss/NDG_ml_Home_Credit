@@ -6,9 +6,10 @@ from plotly.offline import init_notebook_mode, iplot
 import plotly.graph_objs as go
 import plotly.plotly as py
 from plotly import tools
+import matplotlib.pyplot as plt
 init_notebook_mode(connected=True)
 import warnings
-from sklearn.model_selection import StratifiedShuffleSplit
+
 
 def draw_bar_plot_vert(col_name, df):    
     tempAll = df[col_name].value_counts()
@@ -54,3 +55,32 @@ def draw_bar_plot_hor(x, y, titulo):
     layout = go.Layout(title=titulo, width = 900, height = 4000, margin=dict(l=300), yaxis=dict(showgrid=True))
     fig1 = go.Figure(data=data, layout =layout)
     iplot(fig1)
+
+def draw_features_most_correlated(df, feature):
+
+    cor =  df.corr()[feature].sort_values()
+    features = []
+    scores = []
+    for index, val in cor.tail(6).iteritems():
+        if index == feature:
+            continue
+        features.append(index)
+        scores.append(val)
+            
+    for index, val in cor.head(5).iteritems():
+        features.append(index)
+        scores.append(val) 
+
+    correlacao = pd.DataFrame({'features' : features, 'coeficiente' : scores}).set_index('features').T
+    correlacao.plot(kind="bar", figsize = (10, 8))
+    ax = plt.gca()
+    for p in ax.patches:
+        ax.annotate("%.2f" % p.get_height(), (p.get_x() + p.get_width() / 2.,
+                                            p.get_height()), ha='center',
+                    va='center', xytext=(0, 10), textcoords='offset points')
+    ax.tick_params(axis = 'x', which = 'major', pad = 15, size = 42)
+    ax.set_title('Correlação com a feature {}'.format(feature))
+    ax.set_ylabel('Coeficiente')
+    ax.set_xlabel('Features')
+    plt.setp(ax.get_xticklabels(), rotation = 0)
+    plt.show()
