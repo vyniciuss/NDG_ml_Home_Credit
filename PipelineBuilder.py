@@ -8,13 +8,13 @@ from sklearn.pipeline import FeatureUnion
 
 class PipelineBuilder():
 
-    def buil_cat_pipeline(self, cat_attribs):
+    def build_cat_pipeline(self, cat_attribs):
         return Pipeline([
                 ('selector', DataFrameSelector(cat_attribs)),
                 ('cat_encoder', OneHotEncoder(sparse=False)),
             ])
     
-    def buil_numeric_pipeline(self, num_attribs, poly_features=None, combined_features = None):
+    def build_numeric_pipeline(self, num_attribs, poly_features=None, combined_features = None):
         return  Pipeline([
                     ('selector', DataFrameSelector(num_attribs)),
                     ('imputer', Imputer(strategy = "median")),
@@ -25,9 +25,9 @@ class PipelineBuilder():
 
     def build_full_pipeline(self, cat_attribs, num_attribs, poly_features=None, combined_features = None):
         return FeatureUnion(transformer_list=[
-                    ("num_pipeline", self.buil_numeric_pipeline(num_attribs, poly_features=poly_features,
+                    ("num_pipeline", self.build_numeric_pipeline(num_attribs, poly_features=poly_features,
                                                               combined_features = combined_features)),
-                    ("cat_pipeline", self.buil_cat_pipeline(cat_attribs)),
+                    ("cat_pipeline", self.build_cat_pipeline(cat_attribs)),
                 ])
 
     def build_full_pipeline_with_predictor(self, clf, cat_attribs, num_attribs, poly_features=None, combined_features = None):
