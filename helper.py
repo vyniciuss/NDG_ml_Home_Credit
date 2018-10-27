@@ -84,3 +84,33 @@ def draw_features_most_correlated(df, feature):
     ax.set_xlabel('Features')
     plt.setp(ax.get_xticklabels(), rotation = 0)
     plt.show()
+
+def draw_grupos_idade_por_situacao(group, colum, labels_grupos):
+ 
+    year_target_group = group.groupby(['YEARS_BINNED','TARGET']).mean()
+    #transoformando os index YEARS_BINNED e TARGET em colunas 
+    year_target_group.reset_index(level=1, inplace=True)
+    group1 = year_target_group[year_target_group['TARGET'] == 1][colum]
+    group0 = year_target_group[year_target_group['TARGET'] == 0][colum]
+
+    trace0 = go.Scatter(
+        x = labels_grupos,
+        y = group1,
+        mode = 'lines',
+        name = 'Inadimplentes',
+        line = dict(
+            color = ('rgb(205, 12, 24)'),
+            width = 3
+        )
+    )
+
+    trace1 = go.Scatter(
+        x = labels_grupos,
+        y = group0,
+        mode = 'lines',
+        name = 'Bons Pagadores',
+        line = dict(
+            color = ('rgb(22, 96, 167)'),
+            width = 2)
+    )
+    return trace0, trace1
