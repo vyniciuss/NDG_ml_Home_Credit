@@ -7,8 +7,10 @@ import plotly.graph_objs as go
 import plotly.plotly as py
 from plotly import tools
 import matplotlib.pyplot as plt
+import math
 init_notebook_mode(connected=True)
 import warnings
+
 
 
 def draw_bar_plot_vert(col_name, df):    
@@ -62,7 +64,7 @@ def draw_features_most_correlated(df, feature):
     features = []
     scores = []
     for index, val in cor.tail(6).iteritems():
-        if index == feature:
+        if index == feature or math.isnan(val):
             continue
         features.append(index)
         scores.append(val)
