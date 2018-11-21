@@ -73,7 +73,7 @@ Como modelo de referência, usaremos um random classifier com valor base de 0.5 
 
 ## Métricas de avaliação
 
-A escolha da métrica que será utilizada neste projeto é baseado em um problema muito comum quando estamos trabalhando com classificação, classes desbalanceadas.
+A escolha da métrica que será utilizada neste projeto é baseado em um problema muito comum quando estamos trabalhando com classificação, **classes desbalanceadas**.
 
 ![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/classes.PNG)
 
@@ -114,13 +114,13 @@ A construção do modelo preditivo seguirá um processo geral com as fases abaix
     * Explicar o que funcionou e não funcionou
     * Apresentar os resultados
 
-**Para facilitar a leitura do projeto, irei separá-lo em 4 notebooks, devido a grande quantidade de colunas presentes no conjunto de dados.**
+**Para facilitar a leitura do projeto, irei separá-lo em 5 notebooks, devido a grande quantidade de informações e procedimento necessários.**
 
-[Análise Exploratória parte 1:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_Intro_EDA_1.ipynb) Focado na análise estatística e visualização dos dados categóricos.
-[Análise Exploratória parte 2:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_EDA_2.ipynb) Focado na visualização dos dados numéricos.
-[Engenharia de Features](https://github.com/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_FE.ipynb)
-[Escolha e Afinamento de um Modelo/Avaliar e Validar](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_MS.ipynb)
-Apresentar a solução para o problema
+1. [Análise Exploratória parte 1:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_Intro_EDA_1.ipynb) Focado na análise estatística e visualização dos dados categóricos.
+2. [Análise Exploratória parte 2:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_EDA_2.ipynb) Focado na visualização dos dados numéricos.
+3. [Engenharia de Features](https://github.com/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_FE.ipynb)
+4. [Escolha e Afinamento de um Modelo/Avaliar e Validar](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_MS.ipynb)
+5. Apresentar a solução para o problema
 
 
 Este projeto requer **Python 3.6** e as seguintes bibliotecas Python instaladas:
