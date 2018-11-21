@@ -1,4 +1,4 @@
-# Prevendo o risco de inadimplência do crédito residencial
+# Prevendo o risco de inadimplência do crédito residencial - Projeto está em andamento...
 Vinicius Ferreira Santos
 
 28 de setembro de 2018
