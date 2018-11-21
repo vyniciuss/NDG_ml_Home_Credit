@@ -114,10 +114,18 @@ A construção do modelo preditivo seguirá um processo geral com as fases abaix
     * Explicar o que funcionou e não funcionou
     * Apresentar os resultados
 
+**Para facilitar a leitura do projeto, irei separá-lo em 4 notebooks, devido a grande quantidade de colunas presentes no conjunto de dados.**
+
+[Análise Exploratória parte 1:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_Intro_EDA_1.ipynb) Focado na análise estatística e visualização dos dados categóricos.
+[Análise Exploratória parte 2:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_EDA_2.ipynb) Focado na visualização dos dados numéricos.
+[Engenharia de Features](https://github.com/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_FE.ipynb)
+[Escolha e Afinamento de um Modelo/Avaliar e Validar](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_MS.ipynb)
+Apresentar a solução para o problema
+
 
 Este projeto requer **Python 3.6** e as seguintes bibliotecas Python instaladas:
 
-- [NumPy](http://www.numpy.org/)
+- [NumPy](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_Intro_EDA_1.ipynb)
 - [Pandas](http://pandas.pydata.org)
 - [matplotlib](http://matplotlib.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
