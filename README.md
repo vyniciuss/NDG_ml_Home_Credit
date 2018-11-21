@@ -3,7 +3,7 @@ Vinicius Ferreira Santos
 
 28 de setembro de 2018
 
-O projeto final do curso Engenheiro de Machine Learning
+Udacity - Engenheiro de Machine Learning - Projeto final
 
 ![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/logo-home-credit.jpg)
 
