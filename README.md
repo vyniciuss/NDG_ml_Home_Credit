@@ -4,7 +4,7 @@ Vinicius Ferreira Santos
 
 O projeto final do curso Engenheiro de Machine Learning
 
-![alt text](https://github.com/vyniciuss/NDG_ml_customer_segments/blob/master/segmentos.jpg)
+![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/logo-home-credit.jpg)
 
 ## Visão Geral do Projeto
 
@@ -75,11 +75,11 @@ Como modelo de referência, usaremos um random classifier com valor base de 0.5 
 
 A escolha da métrica que será utilizada neste projeto é baseado em um problema muito comum quando estamos trabalhando com classificação, classes desbalanceadas.
 
-![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/about-us-home-credit.jpg)
+![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/classes.PNG)
 
 Dentro dos dados de treinamento que serão utilizados, existem uma coluna chamada target, que indica se um empréstimo foi pago a tempo (valor = 0) ou se o se o cliente teve dificuldade para realizar os pagamentos(valor = 1). Como podemos perceber na imagem acima, nossos dados possuem mais informações de bons pagadores do que mal pagadores. Para esse problema em particular, é recomendado utilizar a métrica ROC AUC, que basicamente mede a taxa de exemplos positivos, quando eles realmente são positivos TP e a taxa de exemplos positivos, quando na verdade eles são negativos FP.
 
-![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/about-us-home-credit.jpg)
+![alt text](https://raw.githubusercontent.com/vyniciuss/NDG_ml_Home_Credit/master/score-roc.PNG)
 
 A imagem acima mostra como a métrica funciona, basicamente os resultados que estão acima da linha pontilhada estão obtendo resultados melhores que o random classifier, caso contrário, estão prevendo pior que uma seleção aleatória.
 
