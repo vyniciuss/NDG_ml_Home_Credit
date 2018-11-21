@@ -1,5 +1,6 @@
 # Prevendo o risco de inadimplência do crédito residencial
 Vinicius Ferreira Santos
+
 28 de setembro de 2018
 
 O projeto final do curso Engenheiro de Machine Learning
