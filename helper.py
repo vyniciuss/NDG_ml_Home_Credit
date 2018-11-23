@@ -2,12 +2,17 @@
 #               Helper Functions                     #
 # ================================================== #
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.legend_handler import HandlerLine2D
 from plotly.offline import init_notebook_mode, iplot
 import plotly.graph_objs as go
 import plotly.plotly as py
 from plotly import tools
 import matplotlib.pyplot as plt
 import math
+from sklearn.metrics import roc_curve, roc_auc_score, accuracy_score
+from sklearn import cross_validation
 init_notebook_mode(connected=True)
 import warnings
 
@@ -116,3 +121,46 @@ def draw_grupos_idade_por_situacao(group, colum, labels_grupos):
             width = 2)
     )
     return trace0, trace1
+
+def draw_roc_score(classifier, x_train, y_train, x_test, y_test):
+    #train
+    y_probas_train = classifier.predict_proba(x_train)
+    y_scores_train = y_probas_train[:, 1] 
+    predictions_train = classifier.predict(x_train)
+    cv_score_train = cross_validation.cross_val_score(classifier, x_train, y_train, cv=5, scoring='roc_auc')
+    print("Train Accuracy: {}%".format(accuracy_score(y_train, predictions_train)))
+    print("Train Score Roc: {}%".format(np.round(roc_auc_score(y_train, y_scores_train)*100, 3)))
+    print("Train CV Score : Mean - %.7g | Std - %.7g | Min - %.7g | Max - %.7g" % (np.mean(cv_score_train),
+                                                                                   np.std(cv_score_train),
+                                                                                   np.min(cv_score_train),
+                                                                                   np.max(cv_score_train)))
+    print("------------------------------------------------------------------------------------------------")
+    #teste
+    y_probas_test = classifier.predict_proba(x_test)
+    y_scores_test = y_probas_test[:, 1] 
+    predictions_test = classifier.predict(x_test)
+    cv_score_test = cross_validation.cross_val_score(classifier, x_test, y_test, cv=5, scoring='roc_auc')
+    print("Test Accuracy: {}%".format(accuracy_score(y_test, predictions_test)))
+    print("Test Score Roc: {}%".format(np.round(roc_auc_score(y_test, y_scores_test)*100, 3)))
+    print("Test CV Score : Mean - %.7g | Std - %.7g | Min - %.7g | Max - %.7g" % (np.mean(cv_score_test),
+                                                                                   np.std(cv_score_test),
+                                                                                   np.min(cv_score_test),
+                                                                                   np.max(cv_score_test)))
+    #draw roc curve
+    fpr1, tpr1, thresholds = roc_curve(y_train, y_scores_train)
+    fpr2, tpr2, thresholds = roc_curve(y_test, y_scores_test)
+    plt.title("Score Roc em Treino e Teste")    
+    line1, = plt.plot(fpr1, tpr1, 'b', label="Treino", linewidth=1.5)
+    line2, = plt.plot(fpr2, tpr2,'r', label="Teste", linewidth=1.5)
+    plt.legend(handler_map={line1: HandlerLine2D(numpoints=2)})
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.axis([0, 1, 0, 1])
+    plt.xlabel('Taxa de Falso Positivo')
+    plt.ylabel('Taxa de Verdadeiro Positivo')
+    plt.show()
+
+def draw_feature_importance(feature_importances, columns):
+    
+    x, y = (list(x) for x in zip(*sorted(zip(feature_importances, columns), 
+                                                            reverse = False)))
+    draw_bar_plot_hor(x, y, 'Importância das features')
