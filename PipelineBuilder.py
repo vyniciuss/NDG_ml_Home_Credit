@@ -14,7 +14,9 @@ class PipelineBuilder():
                 ('cat_encoder', OneHotEncoder(sparse=False)),
             ])
     
-    def build_numeric_pipeline(self, num_attribs, poly_features=None, combined_features = None):
+    def build_numeric_pipeline(self, num_attribs, 
+                               poly_features=None,
+                               combined_features = None):
         return  Pipeline([
                     ('selector', DataFrameSelector(num_attribs)),
                     ('imputer', Imputer(strategy = "median")),
@@ -23,17 +25,23 @@ class PipelineBuilder():
                     ('std_scaler', StandardScaler()),
                 ])
 
-    def build_full_pipeline(self, cat_attribs, num_attribs, poly_features=None, combined_features = None):
+    def build_full_pipeline(self, cat_attribs, num_attribs, 
+                            poly_features=None, 
+                            combined_features = None):
         return FeatureUnion(transformer_list=[
-                    ("num_pipeline", self.build_numeric_pipeline(num_attribs, poly_features=poly_features,
-                                                              combined_features = combined_features)),
+                    ("num_pipeline", self.build_numeric_pipeline(num_attribs, 
+                                                                 poly_features=poly_features,
+                                                                 combined_features = combined_features)),
                     ("cat_pipeline", self.build_cat_pipeline(cat_attribs)),
                 ])
 
-    def build_full_pipeline_with_predictor(self, clf, cat_attribs, num_attribs, poly_features=None, combined_features = None):
+    def build_full_pipeline_with_predictor(self, clf, cat_attribs, 
+                                           num_attribs, poly_features=None,
+                                           combined_features = None):
         return Pipeline([
-                ("preparation", self.build_full_pipeline(cat_attribs, num_attribs, poly_features=poly_features,
-                                                              combined_features = combined_features)),
+                ("preparation", self.build_full_pipeline(cat_attribs, num_attribs,
+                                                         poly_features=poly_features,
+                                                         combined_features = combined_features)),
                 ("clf", clf)
             ])
        
