@@ -115,7 +115,7 @@ A construção do modelo preditivo seguirá um processo geral com as fases abaix
     * Explicar o que funcionou e não funcionou
     * Apresentar os resultados
 
-**Para facilitar a leitura do projeto, irei separá-lo em 5 notebooks, devido a grande quantidade de informações e procedimento necessários.**
+**Para facilitar a leitura do projeto, irei separá-lo em 5 notebooks, devido a grande quantidade de informações e procedimento necessários. Obs: A parte 2 contém muitos gráficos gerados com Plotly e o nbviewer não consegue carregar a página online.**
 
 1. [Análise Exploratória parte 1:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_Intro_EDA_1.ipynb) Focado na análise estatística e visualização dos dados categóricos.
 2. [Análise Exploratória parte 2:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_EDA_2.ipynb) Focado na visualização dos dados numéricos.
