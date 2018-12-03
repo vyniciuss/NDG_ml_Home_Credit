@@ -121,7 +121,7 @@ A construção do modelo preditivo seguirá um processo geral com as fases abaix
 2. [Análise Exploratória parte 2:](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_EDA_2.ipynb) Focado na visualização dos dados numéricos.
 3. [Engenharia de Features](https://github.com/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_FE.ipynb)
 4. [Escolha e Afinamento de um Modelo/Avaliar e Validar](http://nbviewer.jupyter.org/github/vyniciuss/NDG_ml_Home_Credit/blob/master/Home_Credit_MS.ipynb)
-5. Apresentar a solução para o problema
+5. [Apresentar a solução para o problema](https://github.com/vyniciuss/NDG_ml_Home_Credit/blob/master/Relatorio_Final_e_Proposta/Relat%C3%B3rio%20final%20do%20projeto.pdf)
 
 
 Este projeto requer **Python 3.6** e as seguintes bibliotecas Python instaladas:
